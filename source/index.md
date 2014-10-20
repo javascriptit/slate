@@ -3,7 +3,6 @@ title: API Reference
 
 language_tabs:
   - shell
-  - ruby
   - python
 
 toc_footers:
@@ -27,12 +26,6 @@ This example API documentation page was created with [Slate](http://github.com/t
 # Authentication
 
 > To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
 
 ```python
 import kittn
