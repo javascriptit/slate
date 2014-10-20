@@ -13,7 +13,7 @@
 
       <script>
         $(function() {
-          setupLanguages(["shell","ruby","python"]);
+          setupLanguages(["shell","python"]);
         });
       </script>
   </head>
@@ -29,7 +29,6 @@
       <img src="images/logo.png" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="python">python</a>
         </div>
         <div class="search">
@@ -39,216 +38,86 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='http://gitub.com/pycoin/pycoin'>pycoin on GitHub</a></li>
+            <li><a href='http://gitub.com/pycoin/pycoinnet'>pycoinnet on GitHub</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the pycoin project, which consists of <a href="http://gitub.com/pycoin/pycoin">pycoin</a> and <a href="http://gitub.com/pycoin/pycoinnet">pycoinnet</a></p>
+<h3 id='pycoin'>pycoin</h3>
+<p>pycoin is an implementation of a bunch of utility routines that may be useful when dealing with bitcoin and some alt-coins. It has been tested with Python 2.7, 3.3 and 3.4.</p>
+<pre class="highlight shell">pip install -e git+https://github.com/richardkiss/pycoin.git@2dcfaf5a4679f580fecb9ac72d33f40b4b066549#egg<span class="o">=</span>pycoin-master
+</pre>
+<h3 id='pycoin-net'>pycoin net</h3>
+<p>pycoinnet is designed for use in conjunction with the Python pycoin library. It provides utilities and examples for writing tools in pure Python that speak the bitcoin protocol on the bitcoin network.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>Note that is uses the new asyncio library included in Python 3.4 (and available from pypi in Python 3.3 &ndash; type &ldquo;pip install asyncio&rdquo;), and so requires Python 3.3 or higher (unlike pycoin, which supports Python 2.7).
+See also http://github.com/richardkiss/pycoinnet/ for a library that speaks the bitcoin protocol.</p>
+<pre class="highlight shell">git clone https://github.com/pycoin/pycoinnet.git
+<span class="nb">cd </span>pycoinnet
+pip install -r requirements.txt
+</pre>
+<h3 id='authors'>Authors</h3>
+<p>pycoin is project of <a href="https://github.com/richardkiss">Richard Kiss</a>. Contributions and pull requests are welcome.</p>
 
-<p>This example API documentation page was created with <a href="http://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
+<p>Want to donate? Feel free. Send to 1KissFDVu2wAYWPRm4UGh5ZCDU9sE9an8T. For bitcoin consulting contact: him@richardkiss.com.</p>
+<h1 id='pycoin'>pycoin</h1><h2 id='ku-key-utility'>ku (Key Utility)</h2>
 <blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby"><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</pre>
-<pre class="highlight python"><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</pre>
-<pre class="highlight shell"><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</pre>
-
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
+<p>ku is a command line utility (install pycoin through pip)</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<p><aside class="notice">
-You must replace <code class="prettyprint">meowmeowmeow</code> with your personal API key.
-</aside></p>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby"><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
+<p>For responses in JSON format, simply use the -j option</p>
+<h3 id='create'>create</h3><pre class="highlight python"><span class="c"># ku is a command line utility, the equivalent python code is:</span>
 </pre>
-<pre class="highlight python"><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</pre>
-<pre class="highlight shell">curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></pre>
-
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET http://example.com/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<p><aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside></p>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby"><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre>
-<pre class="highlight python"><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</pre>
-<pre class="highlight shell">curl <span class="s2">"http://example.com/api/kittens/3"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<pre class="highlight shell">ku create -j
 </pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Isis"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+   </span><span class="s2">"BTC_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18TeXQN4y4kerR7h1xvaRUoMH5XXNeeupa"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"BTC_address_uncompressed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14abkDyd4uA87aHdkaM1VcvmFAMQdZsXPD"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18TeXQN4y4kerR7h1xvaRUoMH5XXNeeupa"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"address_uncompressed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14abkDyd4uA87aHdkaM1VcvmFAMQdZsXPD"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"chain_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9a107c90c10a4d342988343c2e4d5e2e05418824e0bad48b64605fe50e0f4f0"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"child_index"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51d304e4"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"hash160"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51d304e427c460beeda519d331769e964bf62bee"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"hash160_uncompressed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27431ba2d49d514062fe38e704aec9cd5487bbe1"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"input"</span><span class="p">:</span><span class="w"> </span><span class="s2">"create"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"key_pair_as_sec"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03aab2b7135822248dd66733530d9eb73fe3278db63e2be794d5aee8cd1af15485"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"key_pair_as_sec_uncompressed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04aab2b7135822248dd66733530d9eb73fe3278db63e2be794d5aee8cd1af1548579d4d683d6b913f3667358b97e2601b1c5be7d19c8494d04241756d3401ea34d"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"netcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTC"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"network"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bitcoin mainnet"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"parent_fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000000"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"private_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"yes"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"public_pair_x"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77208946577787814978834540915124044401684778022668014026381541902701082793093"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"public_pair_x_hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aab2b7135822248dd66733530d9eb73fe3278db63e2be794d5aee8cd1af15485"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"public_pair_y"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55105906784392444110946193675086405815876058795470459131838740250197852332877"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"public_pair_y_hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"79d4d683d6b913f3667358b97e2601b1c5be7d19c8494d04241756d3401ea34d"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"public_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xpub661MyMwAqRbcGEPNJ3vKBVs5Vb9oKknjUrLXn6GZueAYW8ehxhEwE7fwYXGMUfAQRJCRiGS3iviWVnvBbKnTZCg6fenhoH7yLykgCXBT6YB"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"secret_exponent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"21736768208848952485277490635272827678808633926621495752266478612806703697575"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"secret_exponent_hex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"300e93275d00cb8ef686c43abf194643b6cbee48f4c5e1004d8e5d80536ecea7"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"tree_depth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"wallet_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xprv9s21ZrQH143K3kJuC2PJpMvLwZKJvJ4t7dQvyhrxMJdZdLKZR9vggKMThDMq9wrZcjoZctKjM34Ybq4RTb8iRPKeQGpsFWn2FiehnB7TfG6"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"wif"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kxq8LRKNqod9xnidoR16T5tdR4xNNMLc63EUg8rWk89SdU3f8VzG"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"wif_uncompressed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5JBT8a9hHwyDuWqraAyD7N3doEaqo59ySA7gMCJ7HZtJb6p5zwj"</span><span class="p">,</span><span class="w"> 
+   </span><span class="s2">"y_parity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"odd"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></pre>
 
-<p>This endpoint retrieves a specific kitten.</p>
+<p>Create a BIP32 Key</p>
 
-<p><aside class="warning">If you&rsquo;re not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside></p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the cat to retrieve</td>
-</tr>
-</tbody></table>
-
-          <h1 id='errors'>Errors</h1>
-<p><aside class="notice">This error section is stored in a separate file in <code class="prettyprint">includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the <code class="prettyprint">includes</code> folder and add them to the top of your <code class="prettyprint">index.md</code>&rsquo;s frontmatter. Files are included in the order listed.</aside></p>
-
-<p>The Kittn API uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slown down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
-</tr>
-</tbody></table>
-
+<p><code class="prettyprint">Entropy will be pulled from GPG and /dev/random</code></p>
+<h2 id='tx-transaction-utility'>tx (Transaction Utility)</h2><h1 id='pycoin-net'>pycoin net</h1><h2 id='installation'>installation</h2>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
                 <a href="#" data-language-name="python">python</a>
           </div>
       </div>
