@@ -1,5 +1,5 @@
 ---
-title: API Reference
+title: pycoin | Python Crypto-currency libraries
 
 language_tabs:
   - shell
@@ -12,7 +12,7 @@ toc_footers:
 search: true
 ---
 
-# Python Crypto-currency libraries
+# Introduction
 
 Welcome to the pycoin project, which consists of [pycoin](http://gitub.com/pycoin/pycoin) and [pycoinnet](http://gitub.com/pycoin/pycoinnet)
 
