@@ -12,7 +12,7 @@ toc_footers:
 search: true
 ---
 
-# Introduction
+# pycoin: 100% Python Crypto-currency libraries
 
 Welcome to the pycoin project, which consists of [pycoin](http://gitub.com/pycoin/pycoin) and [pycoinnet](http://gitub.com/pycoin/pycoinnet)
 
